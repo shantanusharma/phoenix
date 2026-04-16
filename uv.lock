@@ -15,7 +15,7 @@ resolution-markers = [
 ]
 
 [options]
-exclude-newer = "2026-04-13T18:23:32.621573Z"
+exclude-newer = "2026-04-13T18:47:51.164292Z"
 exclude-newer-span = "P3D"
 
 [manifest]
@@ -478,6 +478,10 @@ dependencies = [
 aws = [
     { name = "aioboto3" },
 ]
+azure = [
+    { name = "aiohttp" },
+    { name = "azure-identity" },
+]
 container = [
     { name = "aioboto3" },
     { name = "aiohttp" },
@@ -577,6 +581,7 @@ dev = [
     { name = "twine" },
     { name = "ty" },
     { name = "types-aiobotocore-bedrock-runtime" },
+    { name = "types-aiobotocore-rds" },
     { name = "types-beautifulsoup4" },
     { name = "types-cachetools" },
     { name = "types-jmespath" },
@@ -599,6 +604,7 @@ dev = [
 requires-dist = [
     { name = "aioboto3", marker = "extra == 'aws'" },
     { name = "aioboto3", marker = "extra == 'container'" },
+    { name = "aiohttp", marker = "extra == 'azure'" },
     { name = "aiohttp", marker = "extra == 'container'" },
     { name = "aioitertools" },
     { name = "aiosqlite" },
@@ -609,7 +615,8 @@ requires-dist = [
     { name = "arize-phoenix-otel", editable = "packages/phoenix-otel" },
     { name = "asyncpg", marker = "extra == 'pg'" },
     { name = "authlib" },
-    { name = "azure-identity", marker = "extra == 'container'" },
+    { name = "azure-identity", marker = "extra == 'azure'", specifier = ">=1.18.0" },
+    { name = "azure-identity", marker = "extra == 'container'", specifier = ">=1.18.0" },
     { name = "cachetools" },
     { name = "email-validator" },
     { name = "fastapi", specifier = ">=0.135.2" },
@@ -666,7 +673,7 @@ requires-dist = [
     { name = "uvloop", marker = "sys_platform != 'win32' and extra == 'container'" },
     { name = "wrapt", specifier = ">=1.17.2,<3" },
 ]
-provides-extras = ["aws", "container", "evals", "experimental", "pg"]
+provides-extras = ["aws", "azure", "container", "evals", "experimental", "pg"]
 
 [package.metadata.requires-dev]
 dev = [
@@ -677,7 +684,7 @@ dev = [
     { name = "arize", specifier = ">=8.1.0" },
     { name = "asgi-lifespan" },
     { name = "asyncpg" },
-    { name = "azure-identity" },
+    { name = "azure-identity", specifier = ">=1.18.0" },
     { name = "beautifulsoup4" },
     { name = "boto3" },
     { name = "check-wheel-contents" },
@@ -742,7 +749,8 @@ dev = [
     { name = "tiktoken" },
     { name = "twine" },
     { name = "ty" },
-    { name = "types-aiobotocore-bedrock-runtime", specifier = ">=3.1.1" },
+    { name = "types-aiobotocore-bedrock-runtime", specifier = ">=3.4.0" },
+    { name = "types-aiobotocore-rds", specifier = ">=3.4.0" },
     { name = "types-beautifulsoup4" },
     { name = "types-cachetools" },
     { name = "types-jmespath" },
@@ -7600,6 +7608,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/e7/5d/93fa11cd47d06075f575deb8d10aa4b80b87b8cbb549dcade0e361f799d8/types_aiobotocore_bedrock_runtime-3.4.0.tar.gz", hash = "sha256:b6bb41551192b0e0c59c446ed108c79d5609da9428226e590d0dbb6f5ae7646b", size = 30082, upload-time = "2026-04-08T02:42:31.417Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/7d/45/72f2f96965655e538e4d130f41866a5dd089096c2c976457cae757afe056/types_aiobotocore_bedrock_runtime-3.4.0-py3-none-any.whl", hash = "sha256:6164b84251ee83146b9b382567da6577e4e7e1404163ca4bcfd4fdd32ff02849", size = 36682, upload-time = "2026-04-08T02:42:30.12Z" },
+]
+
+[[package]]
+name = "types-aiobotocore-rds"
+version = "3.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "typing-extensions", marker = "python_full_version < '3.12'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/01/15/c40a12794d02ba62d51eacc09a86b168a3b733ab75811add9321adf82250/types_aiobotocore_rds-3.4.0.tar.gz", hash = "sha256:d9a69baba35291349e96765e709789403efa8f60e516d75750f14c63f9c60800", size = 86361, upload-time = "2026-04-08T02:45:21.048Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bb/37/2698250b9f1dcb1a1f8c10a6aa0a584a63d40bd18fad0f6828a307ef9510/types_aiobotocore_rds-3.4.0-py3-none-any.whl", hash = "sha256:3e01f51ddcc768355365a17ac3eb4b4e5068f0f44ac9c787335797275b75ddc2", size = 93832, upload-time = "2026-04-08T02:45:20.045Z" },
 ]
 
 [[package]]
